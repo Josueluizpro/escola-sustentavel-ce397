@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Escola Sustentável | Sala Maker CE-397</title>
+
+    <style>
+
+        /* =========================================================
+           PALETA DE CORES
+        ========================================================= */
+
+        :root {
+            --amarelo: #f5c400;
+            --amarelo-claro: #fff4b8;
+
+            --vermelho: #d71920;
+            --vermelho-escuro: #a80f14;
+
+            --grafite: #232323;
+            --cinza-escuro: #424242;
+            --cinza: #f5f5f5;
+
+            --branco: #ffffff;
+
+            --verde: #26834a;
+            --verde-claro: #e7f5eb;
+
+            --sombra: 0 8px 25px rgba(0, 0, 0, 0.10);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--grafite);
+            background: var(--branco);
+            line-height: 1.6;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           TOPO
+        ========================================================= */
+
+        header {
+            background: var(--vermelho);
+            color: white;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.20);
+        }
+
+        .topo {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* LOGO */
+
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-sesi {
+            background: white;
+            color: var(--vermelho);
+
+            padding: 4px 12px;
+
+            border-radius: 4px;
+
+            font-size: 26px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .unidade {
+            display: flex;
+            flex-direction: column;
+
+            line-height: 1.1;
+        }
+
+        .unidade strong {
+            font-size: 18px;
+        }
+
+        .unidade span {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+
+        /* MENU */
+
+        nav {
+            display: flex;
+            gap: 25px;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a {
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--amarelo);
+        }
+
+
+        /* =========================================================
+           PERFIL DO ORIENTADOR
+        ========================================================= */
+
+        .perfil-topo {
+            background: var(--amarelo);
+
+            padding: 14px 0;
+        }
+
+        .perfil-conteudo {
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .foto-perfil {
+            width: 72px;
+            height: 72px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 4px solid white;
+
+            background: #eeeeee;
+
+            box-shadow: var(--sombra);
+        }
+
+        .perfil-texto h2 {
+            font-size: 18px;
+
+            color: var(--grafite);
+
+            margin-bottom: 2px;
+        }
+
+        .perfil-texto p {
+            color: var(--grafite);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           CAPA
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 610px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background: var(--grafite);
+        }
+
+        .hero img {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(35,35,35,0.96) 0%,
+                    rgba(35,35,35,0.85) 42%,
+                    rgba(35,35,35,0.40) 70%,
+                    rgba(35,35,35,0.10) 100%
+                );
+        }
+
+        .hero-conteudo {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 680px;
+
+            color: white;
+
+            padding: 90px 0;
+        }
+
+        .etiqueta {
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            background: var(--amarelo);
+
+            color: var(--grafite);
+
+            font-size: 13px;
+            font-weight: bold;
+
+            border-radius: 4px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+
+            color: var(--amarelo);
+        }
+
+        .linha-amarela {
+            width: 75px;
+            height: 5px;
+
+            background: var(--amarelo);
+
+            margin: 20px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+        .frase-principal {
+            font-size: 20px !important;
+
+            font-weight: bold;
+
+            color: var(--amarelo);
+        }
+
+        .botao {
+            display: inline-block;
+
+            background: var(--vermelho);
+
+            color: white;
+
+            padding: 13px 22px;
+
+            border-radius: 6px;
+
+            margin-top: 20px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background: var(--vermelho-escuro);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           TÍTULOS
+        ========================================================= */
+
+        .secao {
+            padding: 85px 0;
+        }
+
+        .titulo {
+            margin-bottom: 45px;
+        }
+
+        .titulo span {
+            color: var(--vermelho);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+        }
+
+        .titulo h2 {
+            color: var(--grafite);
+
+            font-size: clamp(30px, 4vw, 44px);
+
+            line-height: 1.1;
+
+            margin-top: 6px;
+        }
+
+        .titulo h2::after {
+            content: "";
+
+            display: block;
+
+            width: 60px;
+            height: 5px;
+
+            background: var(--amarelo);
+
+            margin-top: 14px;
+        }
+
+
+        /* =========================================================
+           SOBRE O PROJETO
+        ========================================================= */
+
+        .sobre-grid {
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .texto-sobre p {
+            font-size: 17px;
+
+            color: var(--cinza-escuro);
+
+            margin-bottom: 20px;
+        }
+
+        .destaques {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .card {
+            padding: 25px;
+
+            border-radius: 12px;
+
+            background: white;
+
+            border: 1px solid #e5e5e5;
+
+            box-shadow: var(--sombra);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icone {
+            font-size: 31px;
+
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: var(--vermelho);
+
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 14px;
+
+            color: var(--cinza-escuro);
+        }
+
+
+        /* =========================================================
+           ETAPAS
+        ========================================================= */
+
+        .etapas {
+            background: var(--amarelo-claro);
+        }
+
+        .etapas-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .etapa {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border-left: 6px solid var(--vermelho);
+
+            box-shadow: var(--sombra);
+        }
+
+        .numero {
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--vermelho);
+
+            color: white;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .etapa h3 {
+            margin-bottom: 6px;
+
+            color: var(--grafite);
+        }
+
+        .etapa p {
+            font-size: 14px;
+
+            color: var(--cinza-escuro);
+        }
+
+
+        /* =========================================================
+           ÁREA STEAM
+        ========================================================= */
+
+        .steam {
+            padding: 80px 0;
+
+            background: var(--grafite);
+
+            color: white;
+        }
+
+        .steam-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .steam h2 {
+            font-size: clamp(30px, 4vw, 45px);
+
+            line-height: 1.1;
+
+            margin-top: 8px;
+        }
+
+        .steam-subtitulo {
+            color: var(--amarelo);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+        }
+
+        .steam-texto p {
+            font-size: 17px;
+
+            opacity: 0.9;
+
+            margin-bottom: 25px;
+        }
+
+        .areas {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .areas span {
+            background: white;
+
+            color: var(--grafite);
+
+            padding: 10px 15px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================================
+           GALERIA - 4 POR LINHA
+        ========================================================= */
+
+        .galeria {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .foto {
+            height: 220px;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            background: #ddd;
+
+            box-shadow: var(--sombra);
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+        }
+
+        .foto:hover img {
+            transform: scale(1.06);
+        }
+
+
+        /* =========================================================
+           VÍDEO GRANDE
+        ========================================================= */
+
+        .video-secao {
+            padding: 85px 0;
+
+            background: var(--cinza);
+        }
+
+        .video-box {
+            width: 100%;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background: black;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,0.20);
+        }
+
+        .video-box video {
+            display: block;
+
+            width: 100%;
+
+            max-height: 700px;
+        }
+
+
+        /* =========================================================
+           FRASE FINAL
+        ========================================================= */
+
+        .final {
+            padding: 90px 0;
+
+            text-align: center;
+
+            background: white;
+        }
+
+        .final h2 {
+            color: var(--vermelho);
+
+            font-size: clamp(34px, 5vw, 52px);
+
+            line-height: 1.1;
+
+            margin-bottom: 30px;
+        }
+
+        .frases {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-bottom: 28px;
+        }
+
+        .frases span {
+            padding: 9px 16px;
+
+            border-radius: 30px;
+
+            background: var(--grafite);
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+        .frases span:nth-child(2) {
+            background: var(--vermelho);
+        }
+
+        .frases span:nth-child(3) {
+            background: var(--verde);
+        }
+
+        .frases span:nth-child(4) {
+            background: var(--amarelo);
+
+            color: var(--grafite);
+        }
+
+        .final p {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: var(--cinza-escuro);
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================================
+           RODAPÉ
+        ========================================================= */
+
+        footer {
+            background: var(--vermelho);
+
+            color: white;
+
+            padding: 30px 0;
+        }
+
+        .rodape {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .rodape strong {
+            font-size: 18px;
+        }
+
+        .rodape span {
+            display: block;
+
+            font-size: 12px;
+
+            opacity: 0.85;
+        }
+
+
+        /* =========================================================
+           RESPONSIVIDADE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            nav {
+                gap: 15px;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .etapas-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .topo {
+                flex-direction: column;
+
+                padding: 15px 0;
+            }
+
+            nav {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .perfil-conteudo {
+                justify-content: center;
+
+                text-align: center;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-conteudo {
+                padding: 70px 0;
+            }
+
+            .destaques {
+                grid-template-columns: 1fr;
+            }
+
+            .etapas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rodape {
+                flex-direction: column;
+
+                text-align: center;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .foto {
+                height: 240px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .perfil-topo {
+                padding: 12px 0;
+            }
+
+            .foto-perfil {
+                width: 62px;
+                height: 62px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         CABEÇALHO
+    ========================================================== -->
+
+    <header>
+
+        <div class="container topo">
+
+            <div class="marca">
+
+                <div class="logo-sesi">
+                    SESI
+                </div>
+
+                <div class="unidade">
+                    <strong>CE-397</strong>
+                    <span>MAUÁ</span>
+                </div>
+
+            </div>
+
+
+            <nav>
+
+                <a href="https://josueluizpro.github.io/Portal-SESI_2026/">Laboratório de Projetos Tecnológicos-2026
+
+                <a href="#projeto">Projeto</a>
+
+                <a href="#etapas">Etapas</a>
+
+                <a href="#galeria">Galeria</a>
+
+                <a href="#video">Vídeo</a>
+                <a href="https://josueluizpro.github.io/portal-de-projetos-html/">Projetos Tecnológicos-2024</a>
+
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         PERFIL DO ORIENTADOR
+    ========================================================== -->
+
+    <section class="perfil-topo">
+
+        <div class="container perfil-conteudo">
+
+
+            <!--
+                COLOQUE A FOTO DO ORIENTADOR AQUI
+
+                Exemplo:
+                imagens/orientador.jpg
+            -->
+
+            <img
+                src="imagens/perf04.jpg"
+                alt="Orientador de Estudos"
+                class="foto-perfil"
+            >
+
+
+            <div class="perfil-texto">
+
+                <h2>
+                    Orientador de Estudos
+                </h2>
+                <h5>Prof. Josué Luiz</h5>
+
+                <p>
+                    Desenvolvimento e acompanhamento do Projeto Escola Sustentável
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CAPA
+    ========================================================== -->
+
+    <section class="hero" id="inicio">
+
+        <!-- FOTO PRINCIPAL DA MAQUETE -->
+
+        <img
+            src="imagens/30.jpg"
+            alt="Maquete da Escola Sustentável"
+        >
+
+
+        <div class="container hero-conteudo">
+
+            <span class="etiqueta">
+                PROJETO 2026
+            </span>
+
+
+            <h1>
+
+               Escola Sustentável
+
+                <span>
+                    com Energia Eólica
+                </span>
+
+            </h1>
+
+
+            <div class="linha-amarela"></div>
+
+
+            <p>
+                Um projeto desenvolvido na Sala Maker CE-397.
+            </p>
+
+            <p>
+                Ciência, tecnologia e criatividade em cada etapa.
+            </p>
+
+            <p class="frase-principal">
+                Planejar, construir, testar e aprender fazendo.
+            </p>
+
+
+            <a
+                href="#projeto"
+                class="botao"
+            >
+                Conheça o projeto
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SOBRE O PROJETO
+    ========================================================== -->
+
+    <section
+        class="secao"
+        id="projeto"
+    >
+
+        <div class="container">
+
+
+            <div class="titulo">
+
+                <span>
+                    O PROJETO
+                </span>
+
+                <h2>
+                    Uma escola pensada para o futuro
+                </h2>
+
+            </div>
+
+
+            <div class="sobre-grid">
+
+
+                <div class="texto-sobre">
+
+                    <p>
+
+                        O projeto
+                        <strong>
+                            Escola Sustentável com Energia Eólica
+                        </strong>
+                        foi desenvolvido na Sala Maker CE-397,
+                        transformando conhecimento em uma experiência
+                        prática de aprendizagem.
+
+                    </p>
+
+
+                    <p>
+
+                        A proposta consiste na construção de uma maquete
+                        de uma escola que utiliza a
+                        <strong>
+                            energia eólica
+                        </strong>
+                        como fonte de geração de energia.
+
+                    </p>
+
+
+                    <p>
+
+                        Durante o desenvolvimento, os estudantes podem acompanhar 
+                        o planejamento,
+                         a construção, a montagem e os testes do sistema. 
+                         Nesta etapa, os geradores são movimentados por 
+                         uma bateria para demonstrar o funcionamento do 
+                         mecanismo, enquanto trabalhamos no desenvolvimento
+                          de uma solução que permita movimentá-los
+                           efetivamente pela força do vento.
+                    </p>
+
+                </div>
+
+
+
+                <div class="destaques">
+
+
+                    <div class="card">
+
+                        <div class="icone">
+                            🌬️
+                        </div>
+
+                        <h3>
+                            Energia Eólica
+                        </h3>
+
+                        <p>
+                            O vento como fonte de energia renovável.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="icone">
+                            🛠️
+                        </div>
+
+                        <h3>
+                            Cultura Maker
+                        </h3>
+
+                        <p>
+                            Construir, testar e aprender fazendo.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="icone">
+                            ♻️
+                        </div>
+
+                        <h3>
+                            Sustentabilidade
+                        </h3>
+
+                        <p>
+                            Pensando em soluções para o futuro.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="icone">
+                            🔬
+                        </div>
+
+                        <h3>
+                            STEAM
+                        </h3>
+
+                        <p>
+                            Ciência, Tecnologia, Engenharia,
+                            Artes e Matemática.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         ETAPAS
+    ========================================================== -->
+
+    <section
+        class="secao etapas"
+        id="etapas"
+    >
+
+        <div class="container">
+
+
+            <div class="titulo">
+
+                <span>
+                    PASSO A PASSO
+                </span>
+
+                <h2>
+                    Etapas da construção
+                </h2>
+
+            </div>
+
+
+            <div class="etapas-grid">
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        01
+                    </div>
+
+                    <h3>
+                        Planejamento
+                    </h3>
+
+                    <p>
+                        Definição da ideia e da estrutura da maquete.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        02
+                    </div>
+
+                    <h3>
+                        Construção
+                    </h3>
+
+                    <p>
+                        Montagem da estrutura principal da escola.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        03
+                    </div>
+
+                    <h3>
+                        Montagem
+                    </h3>
+
+                    <p>
+                        Instalação dos componentes e detalhes.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        04
+                    </div>
+
+                    <h3>
+                        Sistema Eólico
+                    </h3>
+
+                    <p>
+                        Instalação dos aerogeradores.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        05
+                    </div>
+
+                    <h3>
+                        Testes
+                    </h3>
+
+                    <p>
+                        Testar, ajustar e aperfeiçoar.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        06
+                    </div>
+
+                    <h3>
+                        Resultado
+                    </h3>
+
+                    <p>
+                        Uma escola sustentável construída na Sala Maker.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         STEAM
+    ========================================================== -->
+
+    <section class="steam">
+
+        <div class="container steam-grid">
+
+
+            <div>
+
+                <span class="steam-subtitulo">
+                    APRENDIZAGEM INTERDISCIPLINAR
+                </span>
+
+                <h2>
+                    Ciência, tecnologia
+                    e criatividade.
+                </h2>
+
+            </div>
+
+
+            <div class="steam-texto">
+
+                <p>
+                    O projeto integra diferentes áreas do conhecimento,
+                    aproximando teoria e prática por meio da Cultura Maker
+                    e da abordagem STEAM.
+                </p>
+
+
+                <div class="areas">
+
+                    <span>🔬 Ciência</span>
+
+                    <span>💻 Tecnologia</span>
+
+                    <span>📐 Matemática</span>
+
+                    <span>⚙️ Engenharia</span>
+
+                    <span>🎨 Criatividade</span>
+
+                    <span>🌱 Sustentabilidade</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         GALERIA
+         4 FOTOS POR LINHA
+    ========================================================== -->
+
+    <section
+        class="secao"
+        id="galeria"
+    >
+
+        <div class="container">
+
+
+            <div class="titulo">
+
+                <span>
+                    REGISTROS
+                </span>
+
+                <h2>
+                    Construção da maquete na Sala Maker CE-397
+                </h2>
+
+            </div>
+
+
+            <div class="galeria">
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/ma01.jpg"
+                        alt="Etapa da construção"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq02.jpg"
+                        alt="Construção da escola"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq03.jpg"
+                        alt="Montagem do projeto"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq04.jpg"
+                        alt="Sistema eólico"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq05.jpg"
+                        alt="Detalhes da maquete"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq06.jpg"
+                        alt="Aerogerador"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq07.jpg"
+                        alt="Teste do projeto"
+                    >
+
+                </div>
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq08.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq09.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq010.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div><div class="foto">
+
+                    <img
+                        src="imagens/maq011.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div><div class="foto">
+
+                    <img
+                        src="imagens/maq012.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div><div class="foto">
+
+                    <img
+                        src="imagens/maq013.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div><div class="foto">
+
+                    <img
+                        src="imagens/maq014.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+                
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq015.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq016.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq017.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq018.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/maq019.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/25.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/26.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/27.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/30.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/33.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/34.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/37.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/38.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/39.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/40.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/41.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/42.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+                <div class="foto">
+
+                    <img
+                        src="imagens/43.jpg"
+                        alt="Resultado final"
+                    >
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         VÍDEO
+         UM VÍDEO GRANDE
+    ========================================================== -->
+
+    <section
+        class="video-secao"
+        id="video"
+    >
+
+        <div class="container">
+
+
+            <div class="titulo">
+
+                <span>
+                    EM AÇÃO
+                </span>
+
+                <h2>
+                    Conheça o desenvolvimento do projeto
+                </h2>
+
+            </div>
+
+
+            <div class="video-box">
+
+                <!--
+                    COLOQUE SEU VÍDEO AQUI:
+
+                    videos/escola-sustentavel.mp4
+                -->
+
+                <video controls>
+
+                    <source
+                        src="videos/Maq.SESI-CE397-2026.mp4"
+                        type="video/mp4"
+                    >
+
+                    Seu navegador não suporta vídeo.
+
+                </video>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         ENCERRAMENTO
+    ========================================================== -->
+
+    <section class="final">
+
+        <div class="container">
+
+
+            <h2>
+                Uma experiência construída
+                para aprender.
+            </h2>
+
+
+            <div class="frases">
+
+                <span>
+                    Planejar.
+                </span>
+
+                <span>
+                    Construir.
+                </span>
+
+                <span>
+                    Testar.
+                </span>
+
+                <span>
+                    Aprender fazendo.
+                </span>
+
+            </div>
+
+
+            <p>
+
+                Um projeto desenvolvido na Sala Maker CE-397
+                para apresentação aos estudantes e professores em 2026.
+
+                <br><br>
+
+                <strong>
+                    Construindo ideias.
+                    Transformando aprendizagens.
+                </strong>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         RODAPÉ
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container rodape">
+
+            <div>
+
+                <strong>
+                    SESI • CE-397
+                </strong>
+
+                <span>
+                    Mauá — Projeto Escola Sustentável
+                </span>
+
+            </div>
+
+
+            <div>
+                Sala Maker • 2026
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
